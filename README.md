@@ -12,7 +12,7 @@ This n8n workflow automatically fetches sports news from an RSS feed and publish
 - **Telegram Channel** with the bot added as an **Administrator** with *Post Messages* permission.
 
 ## Setup Instructions
-1. Import the `RSS to Telegram Workflow.json` file into your n8n dashboard.
+1. Import the `RSS to Telegram_Sport News.json` file into your n8n dashboard.
 2. Create a new Telegram API credential in n8n and insert your Bot Token.
 3. Update the `Chat ID` in the Telegram node with your target channel ID (e.g., `-100xxxxxxxxxx`).
 4. Activate the workflow and test it via **Execute Workflow**.
