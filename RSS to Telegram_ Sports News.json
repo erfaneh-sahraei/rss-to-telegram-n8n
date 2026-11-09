@@ -1,0 +1,77 @@
+{
+  "name": "RSS to Telegram: Sports News",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "feedUrl": "https://www.khabarvarzeshi.com/rss/tp/63"
+      },
+      "type": "n8n-nodes-base.rssFeedReadTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6f9b128f-5248-4443-9682-15c54425221f",
+      "name": "RSS Feed Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "-1004480071623",
+        "file": "={{ $json.enclosure.url }}",
+        "additionalFields": {
+          "caption": "={{ $json.title }}\n{{ $json.link }}"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "c4562d4a-aca9-4265-b853-1554486d709f",
+      "name": "Send a photo message",
+      "webhookId": "09bde96a-764b-4c1d-8855-b5188cf00574",
+      "credentials": {
+        "telegramApi": {
+          "id": "Y1fAppGbVH3hZcvr",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "RSS Feed Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a photo message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "77b68cc5-6f25-4792-ab0b-0aa35ebb5569",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b1087d7742052c3a33f398f58b39250581161d4b4b1f81ac59c67f69114b2ea0"
+  },
+  "nodeGroups": [],
+  "id": "tTJuQqJoF8IQxfH7",
+  "tags": []
+}
